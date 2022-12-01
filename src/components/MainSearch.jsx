@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import Job from './Job'
+import { useSelector } from 'react-redux';
 
 const MainSearch = () => {
+  const noOfFaves = useSelector((store) => store.favourites.list.length)
   const [query, setQuery] = useState('')
   const [jobs, setJobs] = useState([])
 
@@ -34,7 +36,7 @@ const MainSearch = () => {
       <Row>
         <Col xs={10} className="mx-auto my-3">
           <h1>Remote Jobs Search</h1>
-          <Link to="/favourites"><h2>View favourites</h2></Link>
+          <Link to="/favourites"><h2>View favourites ({noOfFaves})</h2> </Link>
         </Col>
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>

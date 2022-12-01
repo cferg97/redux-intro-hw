@@ -17,7 +17,7 @@ const Job = ({ data }) => {
           onClick={() => {
             dispatch({
               type: "ADD_TO_FAVES",
-              payload: [data.company_name],
+              payload: data,
             });
           }}
           className="ml-3"

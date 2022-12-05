@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Faves = () => {
-  const favourites = useSelector((state) => state.favourites.list);
+  const favourites = useSelector((state) => state.favourites.favourites.list);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (

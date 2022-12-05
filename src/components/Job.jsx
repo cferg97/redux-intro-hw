@@ -1,7 +1,7 @@
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa"
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToFavesAction } from "../redux/actions";
 
 const Job = ({ data }) => {

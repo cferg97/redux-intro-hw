@@ -11,7 +11,7 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         favourites: {
           ...state.favourites,
-          list: [...state.favourites.list, action.payload],
+          list: [...new Set([...state.favourites.list, action.payload])],
         },
       };
 

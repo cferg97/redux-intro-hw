@@ -51,9 +51,17 @@ const MainSearch = () => {
             />
           </Form>
         </Col>
-        <Col xs={10} className="mx-auto mb-5">
-          {jobsLoading && <Spinner animation="border" variant="info" />}
-          {jobsError && <Alert variant="danger">Error fetching data! :(</Alert>}
+        <Col xs={10} className="mx-auto mb-5 ">
+          {jobsLoading && (
+            <div className="d-flex flex-row justify-content-center">
+              <Spinner
+                className="mt-2 mb-2"
+                animation="border"
+                variant="info"
+              />
+            </div>
+          )}
+          {jobsError && <Alert variant="danger">Error fetching data! 😣</Alert>}
 
           {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Job from "./Job";
 import { useSelector, useDispatch } from "react-redux";
 import { getJobsAction } from "../redux/actions";
-import { useEffect } from "react";
 
 const MainSearch = () => {
   const noOfFaves = useSelector(

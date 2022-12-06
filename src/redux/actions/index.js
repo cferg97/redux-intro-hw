@@ -25,6 +25,10 @@ export const getJobsAction = (endPoint) => {
         type: LOADING,
         payload: true,
       });
+      dispatch({
+        type: ERROR,
+        payload: false,
+      })
       let response = await fetch(endPoint);
       let fetchedJobs = await response.json();
       if (response.ok) {
@@ -45,9 +49,14 @@ export const getJobsAction = (endPoint) => {
       } else {
         console.log("Error fetching");
         dispatch({
+          type: LOADING,
+          payload: false
+        })
+        dispatch({
           type: ERROR,
           payload: true,
         });
+
       }
     } catch (err) {
       console.log(err);
@@ -56,6 +65,10 @@ export const getJobsAction = (endPoint) => {
           type: ERROR,
           payload: true,
         });
+        dispatch({
+          type: LOADING,
+          payload: false
+        })
       }, 1000);
     }
   };

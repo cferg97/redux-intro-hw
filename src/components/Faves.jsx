@@ -29,6 +29,7 @@ const Faves = () => {
                 >
                   <FaTrash />
                 </Button>
+                <hr />
               </li>
             ))}
             <Button variant="info" onClick={() => navigate(-1)}>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Alert, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Job from "./Job";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,6 +14,8 @@ const MainSearch = () => {
   // const [jobs, setJobs] = useState([])
   const dispatch = useDispatch();
   let jobs = useSelector((state) => state.jobs.jobs);
+  let jobsLoading = useSelector((state) => state.jobs.loading);
+  let jobsError = useSelector((state) => state.jobs.error);
 
   const baseEndpoint =
     "https://strive-benchmark.herokuapp.com/api/jobs?search=";
@@ -50,6 +52,9 @@ const MainSearch = () => {
           </Form>
         </Col>
         <Col xs={10} className="mx-auto mb-5">
+          {jobsLoading && <Spinner animation="border" variant="info" />}
+          {jobsError && <Alert variant="danger">Error fetching data! :(</Alert>}
+
           {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />
           ))}
